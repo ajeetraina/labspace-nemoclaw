@@ -35,7 +35,6 @@ export PATH="~/.npm-global/bin:$PATH"
 
 # Then install NemoClaw
 curl -LsSf https://raw.githubusercontent.com/NVIDIA/NemoClaw/main/install.sh | bash
-curl -LsSf https://raw.githubusercontent.com/NVIDIA/NemoClaw/main/install.sh | bash
 ```
 
 Reload your shell again:
