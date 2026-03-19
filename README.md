@@ -40,6 +40,16 @@ Nemotron-3-Nano 30B (thinking model)
 > Docker Model Runner bridge) are not yet supported — see
 > [NemoClaw issue #260](https://github.com/NVIDIA/NemoClaw/issues/260).
 
+## Start the local development mode:
+
+ ```bash
+    # On Mac/Linux
+    CONTENT_PATH=$PWD docker compose up --watch
+
+    # On Windows with PowerShell
+    $Env:CONTENT_PATH = (Get-Location).Path; docker compose up --watch
+  ```
+
 ## Time to Complete
 
 ~30 minutes
