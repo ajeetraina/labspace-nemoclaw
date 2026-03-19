@@ -1,21 +1,67 @@
-# Introduction
+# Step 1 - Install OpenShell and NemoClaw
 
-👋 Welcome to the **Labspace starter** lab! During this lab, you will learn to do the following:
+## Install OpenShell
 
-- Learning Objective 1
-- Learning Objective 2
-- Learning Objective 3
-- Learning Objective 4
+OpenShell is the safe, private runtime for autonomous AI agents. Install it
+using the official install script:
 
+```bash
+curl -LsSf https://raw.githubusercontent.com/NVIDIA/OpenShell/main/install.sh | sh
+```
 
-## 🙋 What is a Labspace again?
+Reload your shell to pick up the new PATH:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia nisi sit amet auctor accumsan. Maecenas suscipit, libero quis ullamcorper pulvinar, dolor nisl vehicula orci, vel egestas arcu nibh eget enim. 
+```bash
+source ~/.bashrc
+```
 
-Suspendisse potenti. Pellentesque eleifend eget ante eu egestas. 
+Verify the installation:
 
-Nunc sit amet dapibus erat. Aliquam diam arcu, fringilla hendrerit metus sed, pellentesque fringilla lacus. 
+```bash
+openshell --version
+```
 
-Nulla ornare nulla risus. Curabitur ut ipsum euismod, accumsan lorem eu, pretium lorem. Fusce imperdiet fermentum hendrerit.
+## Install NemoClaw
 
+NemoClaw is NVIDIA's agent plugin for OpenShell that adds Nemotron model
+support and the NemoClaw agent harness:
 
+```bash
+curl -LsSf https://raw.githubusercontent.com/NVIDIA/NemoClaw/main/install.sh | sh
+```
+
+Reload your shell again:
+
+```bash
+source ~/.bashrc
+```
+
+Verify NemoClaw:
+
+```bash
+nemoclaw --version
+```
+
+## Verify Docker is Running
+
+OpenShell requires Docker. Confirm it's available:
+
+```bash
+docker info | grep -E "Server Version|Operating System"
+```
+
+You should see the Docker server version and Linux as the OS.
+
+## Run the NemoClaw Doctor
+
+NemoClaw includes a built-in diagnostic tool:
+
+```bash
+nemoclaw doctor
+```
+
+This checks that all dependencies are installed and working correctly. Fix any
+issues it reports before proceeding.
+
+> **Tip:** If `nemoclaw` is not found after install, run
+> `export PATH="$HOME/.local/bin:$PATH"` and try again.
