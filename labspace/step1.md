@@ -96,7 +96,7 @@ nemoclaw collabnix connect
 Testing the inference:
 
 ```
-curl https://inference.local/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -d '{"model":"nvidia/nemotron-3-super-120b-a12b","messages":[{"role":"user","content":"hello, who are you?"}]}'
+ curl https://inference.local/v1/chat/completions \
+   -H "Content-Type: application/json" \
+   -d '{"model":"nvidia/nemotron-3-super-120b-a12b","messages":[{"role":"user","content":"hello, who are you?"}]}'
 ```
