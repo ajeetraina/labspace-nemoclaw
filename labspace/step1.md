@@ -1,34 +1,84 @@
-# Install NemoClaw
-
-NemoClaw is NVIDIA's agent plugin for OpenShell. Before installing, configure
-npm to install packages without root permissions:
+## Install OpenShell 0.0.32
+ 
+OpenShell is distributed as a statically linked tarball. Detect your
+architecture and download the matching release:
+ 
+```bash
+# Detect architecture (aarch64 for Apple Silicon / ARM Linux, x86_64 for Intel/AMD)
+ARCH=$(uname -m)
+OPENSHELL_VERSION="0.0.32"
+ 
+# Create your user-local bin directory
+mkdir -p ~/.local/bin
+ 
+# Download and extract the openshell binary directly into ~/.local/bin
+curl -fsSL \
+  "https://github.com/NVIDIA/OpenShell/releases/download/v${OPENSHELL_VERSION}/openshell-${ARCH}-unknown-linux-musl.tar.gz" \
+  | tar -xz -C ~/.local/bin openshell
+ 
+chmod +x ~/.local/bin/openshell
+```
+ 
+Add `~/.local/bin` to your PATH:
+ 
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+```
+ 
+Verify the installation:
+ 
+```bash
+openshell --version
+```
+ 
+You should see:
+ 
+```
+openshell 0.0.32
+```
+ 
+## Install NemoClaw
+ 
+First, configure npm to install global packages without root:
+ 
 ```bash
 mkdir -p ~/.npm-global
 npm config set prefix ~/.npm-global
 export PATH="$HOME/.npm-global/bin:$PATH"
 echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.bashrc
 ```
-
-Now install NemoClaw:
+ 
+Run the NemoClaw installer:
+ 
 ```bash
 curl -LsSf https://raw.githubusercontent.com/NVIDIA/NemoClaw/main/install.sh | bash
 ```
-
+ 
+Because you already have a compatible OpenShell installed, the installer's
+"Installing OpenShell CLI" step should detect version 0.0.32 and pass its
+compatibility check instead of trying to install a newer version.
+ 
 Reload your shell:
+ 
 ```bash
 source ~/.bashrc
 ```
-
+ 
 Verify NemoClaw is installed:
+ 
 ```bash
 nemoclaw help
 ```
-
-You should see the NemoClaw command list including `onboard`, `list`, `connect` and more.
-
-> **Note:** `nemoclaw --version` is not a valid command. Use `nemoclaw help` to see all available commands.
-
+ 
+You should see the NemoClaw command list including `onboard`, `list`, `connect`,
+and more.
+ 
+> **Note:** Use `nemoclaw help` to list commands. `nemoclaw --version` prints the
+> version but does not list subcommands.
+ 
 ## Run the Onboarding Wizard
+
 
 NemoClaw includes an interactive setup wizard that handles everything in one go:
 ```bash
