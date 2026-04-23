@@ -1,27 +1,4 @@
-# Step 1 - Install OpenShell and NemoClaw
-
-## Install OpenShell
-
-OpenShell is the safe, private runtime for autonomous AI agents. Install it
-using the official install script:
-```bash
-curl -LsSf https://raw.githubusercontent.com/NVIDIA/OpenShell/main/install.sh | bash
-```
-
-Add OpenShell to your PATH:
-```bash
-export PATH="/home/coder/.local/bin:$PATH"
-echo 'export PATH="/home/coder/.local/bin:$PATH"' >> ~/.bashrc
-```
-
-Verify the installation:
-```bash
-openshell --version
-```
-
-You should see `openshell 0.0.10` or later.
-
-## Install NemoClaw
+# Step 1 - Install NemoClaw
 
 NemoClaw is NVIDIA's agent plugin for OpenShell. Before installing, configure
 npm to install packages without root permissions:
